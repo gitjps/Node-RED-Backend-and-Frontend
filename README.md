@@ -15,8 +15,8 @@ This Node-RED flow can be used to perform CREATE, READ, UPDATE and DELETE operat
 ![Node-RED flow](node-red-crud.jpg)
 
 # Endpoints
-- Create user
-- Get Users
-- Get User
-- Update User
-- Delete User
+- Create doc
+- Get all docs
+- Get doc
+- Update doc
+- Delete doc
