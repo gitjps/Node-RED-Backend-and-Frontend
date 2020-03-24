@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://wirvsvirus-ibm.eu-de.mybluemix.net/user",
+					"raw": "https://wirvsvirus-ibm.eu-de.mybluemix.net/users",
 					"protocol": "https",
 					"host": [
 						"wirvsvirus-ibm",
@@ -20,7 +20,7 @@
 						"net"
 					],
 					"path": [
-						"user"
+						"users"
 					]
 				}
 			},
@@ -32,11 +32,11 @@
 				"method": "POST",
 				"header": [],
 				"body": {
-					"mode": "formdata",
-					"formdata": []
+					"mode": "raw",
+					"raw": ""
 				},
 				"url": {
-					"raw": "https://wirvsvirus-ibm.eu-de.mybluemix.net/user/%7B%20%22name%22%20%3A%20%22Peter%22%20%7D",
+					"raw": "https://wirvsvirus-ibm.eu-de.mybluemix.net/user?Name=Peter",
 					"protocol": "https",
 					"host": [
 						"wirvsvirus-ibm",
@@ -45,8 +45,13 @@
 						"net"
 					],
 					"path": [
-						"user",
-						"%7B%20%22name%22%20%3A%20%22Peter%22%20%7D"
+						"user"
+					],
+					"query": [
+						{
+							"key": "Name",
+							"value": "Peter"
+						}
 					]
 				}
 			},
@@ -58,7 +63,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://wirvsvirus-ibm.eu-de.mybluemix.net/user/83100ee701e2dfa1e8baec859f9e57df",
+					"raw": "https://wirvsvirus-ibm.eu-de.mybluemix.net/user?_id=3c3c04a85e303fbdd55df5190b7ed332",
 					"protocol": "https",
 					"host": [
 						"wirvsvirus-ibm",
@@ -67,8 +72,13 @@
 						"net"
 					],
 					"path": [
-						"user",
-						"83100ee701e2dfa1e8baec859f9e57df"
+						"user"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "3c3c04a85e303fbdd55df5190b7ed332"
+						}
 					]
 				}
 			},
@@ -80,7 +90,7 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "https://wirvsvirus-ibm.eu-de.mybluemix.net/user/83100ee701e2dfa1e8baec859f9e57df",
+					"raw": "https://wirvsvirus-ibm.eu-de.mybluemix.net/user?_id=3c3c04a85e303fbdd55df5190b7ed332&_rev=2-4e02515b549e643a394533d553e5d157&name=Paul",
 					"protocol": "https",
 					"host": [
 						"wirvsvirus-ibm",
@@ -89,8 +99,56 @@
 						"net"
 					],
 					"path": [
-						"user",
-						"83100ee701e2dfa1e8baec859f9e57df"
+						"user"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "3c3c04a85e303fbdd55df5190b7ed332"
+						},
+						{
+							"key": "_rev",
+							"value": "2-4e02515b549e643a394533d553e5d157"
+						},
+						{
+							"key": "name",
+							"value": "Paul"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://wirvsvirus-ibm.eu-de.mybluemix.net/user?_id=3c3c04a85e303fbdd55df5190b7ed332&_rev=4-c6ac100ccbf65c506b3f7e012ed9bd20&name=Jens",
+					"protocol": "https",
+					"host": [
+						"wirvsvirus-ibm",
+						"eu-de",
+						"mybluemix",
+						"net"
+					],
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "3c3c04a85e303fbdd55df5190b7ed332"
+						},
+						{
+							"key": "_rev",
+							"value": "4-c6ac100ccbf65c506b3f7e012ed9bd20"
+						},
+						{
+							"key": "name",
+							"value": "Jens"
+						}
 					]
 				}
 			},

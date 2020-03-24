@@ -1,1 +1,325 @@
-[{"id":"eec4c8f9.caf1f8","type":"tab","label":"CRUD","disabled":false,"info":""},{"id":"6cb9f867.3fd378","type":"tab","label":"work in progress","disabled":false,"info":""},{"id":"8d16feb0.6a185","type":"cloudant","z":"","host":"myaccountname.cloudant.com","name":"My Cloudant account"},{"id":"a1b2f385.20354","type":"cloudant","z":"","host":"myaccountname.cloudant.com","name":"My Cloudant account"},{"id":"4f5d32c8.a2f5ec","type":"cloudant out","z":"eec4c8f9.caf1f8","name":"create doc","cloudant":"8d16feb0.6a185","database":"chatbot","service":"Cloudant-wk","payonly":true,"operation":"insert","x":710,"y":140,"wires":[]},{"id":"f1c5843e.629ea8","type":"http in","z":"eec4c8f9.caf1f8","name":"","url":"/user","method":"get","upload":false,"swaggerDoc":"","x":120,"y":260,"wires":[["4b62fbfc.18ded4"]]},{"id":"ca3920e9.7959a","type":"http response","z":"eec4c8f9.caf1f8","name":"","statusCode":"200","headers":{},"x":700,"y":100,"wires":[]},{"id":"7ce9a08e.ad498","type":"http response","z":"eec4c8f9.caf1f8","name":"","statusCode":"","headers":{},"x":550,"y":260,"wires":[]},{"id":"4b62fbfc.18ded4","type":"cloudant in","z":"eec4c8f9.caf1f8","name":"get all documents","cloudant":"","database":"chatbot","service":"Cloudant-wk","search":"_all_","design":"","index":"","x":370,"y":260,"wires":[["7ce9a08e.ad498"]]},{"id":"5fbd7a1c.6bc3b4","type":"http in","z":"eec4c8f9.caf1f8","name":"","url":"/user/:id","method":"get","upload":false,"swaggerDoc":"","x":130,"y":380,"wires":[["caf086e3.5ddd18"]]},{"id":"1ef1b79a.5f0ae8","type":"http response","z":"eec4c8f9.caf1f8","name":"","statusCode":"","headers":{},"x":710,"y":380,"wires":[]},{"id":"4da5b7e6.4dbe88","type":"cloudant in","z":"eec4c8f9.caf1f8","name":"","cloudant":"","database":"chatbot","service":"Cloudant-wk","search":"_id_","design":"","index":"","x":540,"y":380,"wires":[["1ef1b79a.5f0ae8"]]},{"id":"4ea422f5.78aadc","type":"comment","z":"eec4c8f9.caf1f8","name":"Create user","info":"","x":130,"y":80,"wires":[]},{"id":"24ac248f.3a567c","type":"comment","z":"eec4c8f9.caf1f8","name":"Get user","info":"","x":120,"y":340,"wires":[]},{"id":"92b84eaf.697cd","type":"comment","z":"eec4c8f9.caf1f8","name":"Get all users","info":"","x":130,"y":220,"wires":[]},{"id":"f72d7dfc.5153f","type":"http in","z":"eec4c8f9.caf1f8","name":"","url":"/user/:data","method":"post","upload":false,"swaggerDoc":"","x":140,"y":120,"wires":[["b945f51f.dd28e8"]]},{"id":"b945f51f.dd28e8","type":"change","z":"eec4c8f9.caf1f8","name":"","rules":[{"t":"set","p":"payload","pt":"msg","to":"req.params.data","tot":"msg"}],"action":"","property":"","from":"","to":"","reg":false,"x":360,"y":120,"wires":[["9cafd7a8.bf2ec8"]]},{"id":"9cafd7a8.bf2ec8","type":"json","z":"eec4c8f9.caf1f8","name":"","property":"payload","action":"","pretty":false,"x":550,"y":120,"wires":[["4f5d32c8.a2f5ec","ca3920e9.7959a"]]},{"id":"caf086e3.5ddd18","type":"change","z":"eec4c8f9.caf1f8","name":"","rules":[{"t":"set","p":"payload","pt":"msg","to":"req.params.id","tot":"msg"}],"action":"","property":"","from":"","to":"","reg":false,"x":340,"y":380,"wires":[["4da5b7e6.4dbe88"]]},{"id":"e4827992.553e48","type":"cloudant out","z":"6cb9f867.3fd378","name":"update doc","cloudant":"a1b2f385.20354","database":"chatbot","service":"Cloudant-wk","payonly":true,"operation":"insert","x":670,"y":220,"wires":[]},{"id":"bb037e44.b0bfe","type":"cloudant out","z":"6cb9f867.3fd378","name":"delete doc","cloudant":"a1b2f385.20354","database":"chatbot","service":"Cloudant-wk","payonly":false,"operation":"delete","x":630,"y":300,"wires":[]},{"id":"4f5bc822.666468","type":"http in","z":"6cb9f867.3fd378","name":"","url":"/user","method":"delete","upload":false,"swaggerDoc":"","x":130,"y":360,"wires":[["c0ae626a.2cae"]]},{"id":"c0ae626a.2cae","type":"function","z":"6cb9f867.3fd378","name":"copy query to payload","func":"msg.payload = {};\nmsg.payload = msg.req.query;\nreturn msg;","outputs":1,"noerr":0,"x":420,"y":360,"wires":[["bb037e44.b0bfe","2d890f45.cc3c7"]]},{"id":"2d890f45.cc3c7","type":"http response","z":"6cb9f867.3fd378","name":"","statusCode":"200","headers":{},"x":640,"y":360,"wires":[]},{"id":"60adbd7.5575e44","type":"http in","z":"6cb9f867.3fd378","name":"","url":"/user/:data","method":"put","upload":false,"swaggerDoc":"","x":120,"y":180,"wires":[["35636c3e.8bf764","1fc7f9bf.d89d46"]]},{"id":"35636c3e.8bf764","type":"function","z":"6cb9f867.3fd378","name":"copy query to payload","func":"msg.payload = {};\nmsg.payload = msg.req.query;\nreturn msg;","outputs":1,"noerr":0,"x":400,"y":180,"wires":[["e4827992.553e48","1d4afa5d.295d16"]]},{"id":"1d4afa5d.295d16","type":"http response","z":"6cb9f867.3fd378","name":"","statusCode":"200","headers":{},"x":660,"y":180,"wires":[]},{"id":"46c038de.8cb518","type":"comment","z":"6cb9f867.3fd378","name":"Update database entry","info":"","x":140,"y":140,"wires":[]},{"id":"867b93bc.5c7e4","type":"comment","z":"6cb9f867.3fd378","name":"Delete Entry","info":"","x":130,"y":320,"wires":[]},{"id":"1fc7f9bf.d89d46","type":"debug","z":"6cb9f867.3fd378","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"true","targetType":"full","x":360,"y":140,"wires":[]},{"id":"d62f209f.4fdd6","type":"comment","z":"6cb9f867.3fd378","name":"to be completed","info":"","x":120,"y":80,"wires":[]}]
+[{
+    "id": "eec4c8f9.caf1f8",
+    "type": "tab",
+    "label": "CRUD",
+    "disabled": false,
+    "info": ""
+}, {
+    "id": "8d16feb0.6a185",
+    "type": "cloudant",
+    "z": "",
+    "host": "myaccountname.cloudant.com",
+    "name": "My Cloudant account"
+}, {
+    "id": "a1b2f385.20354",
+    "type": "cloudant",
+    "z": "",
+    "host": "myaccountname.cloudant.com",
+    "name": "My Cloudant account"
+}, {
+    "id": "4f5d32c8.a2f5ec",
+    "type": "cloudant out",
+    "z": "eec4c8f9.caf1f8",
+    "name": "create doc",
+    "cloudant": "8d16feb0.6a185",
+    "database": "chatbot",
+    "service": "Cloudant-wk",
+    "payonly": true,
+    "operation": "insert",
+    "x": 610,
+    "y": 140,
+    "wires": []
+}, {
+    "id": "f1c5843e.629ea8",
+    "type": "http in",
+    "z": "eec4c8f9.caf1f8",
+    "name": "",
+    "url": "/users",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 120,
+    "y": 260,
+    "wires": [
+        ["4b62fbfc.18ded4"]
+    ]
+}, {
+    "id": "ca3920e9.7959a",
+    "type": "http response",
+    "z": "eec4c8f9.caf1f8",
+    "name": "",
+    "statusCode": "200",
+    "headers": {},
+    "x": 600,
+    "y": 100,
+    "wires": []
+}, {
+    "id": "7ce9a08e.ad498",
+    "type": "http response",
+    "z": "eec4c8f9.caf1f8",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 550,
+    "y": 260,
+    "wires": []
+}, {
+    "id": "4b62fbfc.18ded4",
+    "type": "cloudant in",
+    "z": "eec4c8f9.caf1f8",
+    "name": "get all documents",
+    "cloudant": "",
+    "database": "chatbot",
+    "service": "Cloudant-wk",
+    "search": "_all_",
+    "design": "",
+    "index": "",
+    "x": 370,
+    "y": 260,
+    "wires": [
+        ["7ce9a08e.ad498"]
+    ]
+}, {
+    "id": "1ef1b79a.5f0ae8",
+    "type": "http response",
+    "z": "eec4c8f9.caf1f8",
+    "name": "",
+    "statusCode": "",
+    "headers": {},
+    "x": 710,
+    "y": 380,
+    "wires": []
+}, {
+    "id": "4da5b7e6.4dbe88",
+    "type": "cloudant in",
+    "z": "eec4c8f9.caf1f8",
+    "name": "",
+    "cloudant": "",
+    "database": "chatbot",
+    "service": "Cloudant-wk",
+    "search": "_id_",
+    "design": "",
+    "index": "",
+    "x": 540,
+    "y": 380,
+    "wires": [
+        ["1ef1b79a.5f0ae8"]
+    ]
+}, {
+    "id": "4ea422f5.78aadc",
+    "type": "comment",
+    "z": "eec4c8f9.caf1f8",
+    "name": "Create user",
+    "info": "",
+    "x": 130,
+    "y": 80,
+    "wires": []
+}, {
+    "id": "24ac248f.3a567c",
+    "type": "comment",
+    "z": "eec4c8f9.caf1f8",
+    "name": "Get user",
+    "info": "",
+    "x": 120,
+    "y": 340,
+    "wires": []
+}, {
+    "id": "92b84eaf.697cd",
+    "type": "comment",
+    "z": "eec4c8f9.caf1f8",
+    "name": "Get all users",
+    "info": "",
+    "x": 130,
+    "y": 220,
+    "wires": []
+}, {
+    "id": "b945f51f.dd28e8",
+    "type": "change",
+    "z": "eec4c8f9.caf1f8",
+    "name": "",
+    "rules": [{
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "req.query",
+        "tot": "msg"
+    }],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 360,
+    "y": 120,
+    "wires": [
+        ["ca3920e9.7959a", "4f5d32c8.a2f5ec"]
+    ]
+}, {
+    "id": "caf086e3.5ddd18",
+    "type": "change",
+    "z": "eec4c8f9.caf1f8",
+    "name": "",
+    "rules": [{
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "req.query._id",
+        "tot": "msg"
+    }],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 340,
+    "y": 380,
+    "wires": [
+        ["4da5b7e6.4dbe88"]
+    ]
+}, {
+    "id": "ec6ebf41.055bf",
+    "type": "cloudant out",
+    "z": "eec4c8f9.caf1f8",
+    "name": "update doc",
+    "cloudant": "a1b2f385.20354",
+    "database": "chatbot",
+    "service": "Cloudant-wk",
+    "payonly": true,
+    "operation": "insert",
+    "x": 650,
+    "y": 520,
+    "wires": []
+}, {
+    "id": "5f861024.39336",
+    "type": "function",
+    "z": "eec4c8f9.caf1f8",
+    "name": "copy query to payload",
+    "func": "msg.payload = {};\nmsg.payload = msg.req.query;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 380,
+    "y": 520,
+    "wires": [
+        ["ec6ebf41.055bf", "1e6ead5b.ee4903"]
+    ]
+}, {
+    "id": "1e6ead5b.ee4903",
+    "type": "http response",
+    "z": "eec4c8f9.caf1f8",
+    "name": "",
+    "statusCode": "200",
+    "headers": {},
+    "x": 600,
+    "y": 460,
+    "wires": []
+}, {
+    "id": "89ec2d90.7f74",
+    "type": "http in",
+    "z": "eec4c8f9.caf1f8",
+    "name": "",
+    "url": "/user",
+    "method": "put",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 120,
+    "y": 520,
+    "wires": [
+        ["5f861024.39336"]
+    ]
+}, {
+    "id": "39bd6f5d.458b7",
+    "type": "comment",
+    "z": "eec4c8f9.caf1f8",
+    "name": "Update user",
+    "info": "",
+    "x": 130,
+    "y": 460,
+    "wires": []
+}, {
+    "id": "83216d52.a1755",
+    "type": "http in",
+    "z": "eec4c8f9.caf1f8",
+    "name": "",
+    "url": "/user",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 130,
+    "y": 120,
+    "wires": [
+        ["b945f51f.dd28e8"]
+    ]
+}, {
+    "id": "90f5e4e5.ec8b38",
+    "type": "http in",
+    "z": "eec4c8f9.caf1f8",
+    "name": "",
+    "url": "/user",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 120,
+    "y": 380,
+    "wires": [
+        ["caf086e3.5ddd18"]
+    ]
+}, {
+    "id": "a0e72683.de5878",
+    "type": "cloudant out",
+    "z": "eec4c8f9.caf1f8",
+    "name": "delete doc",
+    "cloudant": "a1b2f385.20354",
+    "database": "chatbot",
+    "service": "Cloudant-wk",
+    "payonly": false,
+    "operation": "delete",
+    "x": 630,
+    "y": 600,
+    "wires": []
+}, {
+    "id": "f74a8584.fe1938",
+    "type": "http in",
+    "z": "eec4c8f9.caf1f8",
+    "name": "",
+    "url": "/user",
+    "method": "delete",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 130,
+    "y": 660,
+    "wires": [
+        ["f0118d4f.87f9b"]
+    ]
+}, {
+    "id": "f0118d4f.87f9b",
+    "type": "function",
+    "z": "eec4c8f9.caf1f8",
+    "name": "copy query to payload",
+    "func": "msg.payload = {};\nmsg.payload = msg.req.query;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 420,
+    "y": 660,
+    "wires": [
+        ["a0e72683.de5878", "1d7bd835.242af8"]
+    ]
+}, {
+    "id": "1d7bd835.242af8",
+    "type": "http response",
+    "z": "eec4c8f9.caf1f8",
+    "name": "",
+    "statusCode": "200",
+    "headers": {},
+    "x": 640,
+    "y": 660,
+    "wires": []
+}, {
+    "id": "c2967c60.3628a",
+    "type": "comment",
+    "z": "eec4c8f9.caf1f8",
+    "name": "Delete user",
+    "info": "",
+    "x": 130,
+    "y": 620,
+    "wires": []
+}]
