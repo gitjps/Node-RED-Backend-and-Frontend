@@ -1,6 +1,6 @@
 # Node-RED-Cloudant-CRUD
 
-This Node-RED flow can be used to perform CREATE, READ, UPDATE and DELETE operations against a Cloudant database.
+This Node-RED flow can be used to perform CREATE, READ, UPDATE and DELETE operations against a Cloudant database. It is an simple way to provide data store for hackathons, prototypes etc..
 
 ** UNDER CONSTRUCTION **
 
@@ -20,3 +20,13 @@ This Node-RED flow can be used to perform CREATE, READ, UPDATE and DELETE operat
 - Get doc
 - Update doc
 - Delete doc
+
+# How it works
+The API key is set when the flow starts (initialization node).
+When a request is received (e.g. *Create doc*), the header parameter *apikey*  is checked first. If it is not correct, a 401 error is thrown. Otherwise the requested actions is performed.
+
+# Test the endpoints
+The [Postman collection](NODE-RED-Cloudant-CRUD.postman_collection.json) can be used to test the test the API.
+- Set the *apikey* in the **initialization** node 
+
+**Note** that REST calls in flows cannot be invoked directly from a web application, please vae a look [here](https://suedbroecker.net/2019/03/13/cors-and-node-red-using-a-simple-forward-server/).

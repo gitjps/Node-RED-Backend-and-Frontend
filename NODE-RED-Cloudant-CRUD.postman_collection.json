@@ -6,12 +6,18 @@
 	},
 	"item": [
 		{
-			"name": "Get Users",
+			"name": "Get docs",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "apikey",
+						"value": "Corona2020",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "https://wirvsvirus-ibm.eu-de.mybluemix.net/users",
+					"raw": "https://wirvsvirus-ibm.eu-de.mybluemix.net/docs",
 					"protocol": "https",
 					"host": [
 						"wirvsvirus-ibm",
@@ -20,23 +26,36 @@
 						"net"
 					],
 					"path": [
-						"users"
+						"docs"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Create User",
+			"name": "Create doc",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "apikey",
+						"type": "text",
+						"value": "Corona2020"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://wirvsvirus-ibm.eu-de.mybluemix.net/user?Name=Peter",
+					"raw": "https://wirvsvirus-ibm.eu-de.mybluemix.net/doc?Name=Peter",
 					"protocol": "https",
 					"host": [
 						"wirvsvirus-ibm",
@@ -45,7 +64,7 @@
 						"net"
 					],
 					"path": [
-						"user"
+						"doc"
 					],
 					"query": [
 						{
@@ -61,9 +80,15 @@
 			"name": "Get User",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "apikey",
+						"value": "Corona2020",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "https://wirvsvirus-ibm.eu-de.mybluemix.net/user?_id=3c3c04a85e303fbdd55df5190b7ed332",
+					"raw": "https://wirvsvirus-ibm.eu-de.mybluemix.net/doc?_id=e04e8fcbf29ffa54f9b71f0799b6b39e",
 					"protocol": "https",
 					"host": [
 						"wirvsvirus-ibm",
@@ -72,12 +97,12 @@
 						"net"
 					],
 					"path": [
-						"user"
+						"doc"
 					],
 					"query": [
 						{
 							"key": "_id",
-							"value": "3c3c04a85e303fbdd55df5190b7ed332"
+							"value": "e04e8fcbf29ffa54f9b71f0799b6b39e"
 						}
 					]
 				}
@@ -88,9 +113,15 @@
 			"name": "Update User",
 			"request": {
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "apikey",
+						"value": "Corona2020",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "https://wirvsvirus-ibm.eu-de.mybluemix.net/user?_id=3c3c04a85e303fbdd55df5190b7ed332&_rev=2-4e02515b549e643a394533d553e5d157&name=Paul",
+					"raw": "https://wirvsvirus-ibm.eu-de.mybluemix.net/doc?_id=e04e8fcbf29ffa54f9b71f0799b6b39e&_rev=1-87a5f0ea2cecd3794cc93dfed644d660&name=Heinz",
 					"protocol": "https",
 					"host": [
 						"wirvsvirus-ibm",
@@ -99,20 +130,20 @@
 						"net"
 					],
 					"path": [
-						"user"
+						"doc"
 					],
 					"query": [
 						{
 							"key": "_id",
-							"value": "3c3c04a85e303fbdd55df5190b7ed332"
+							"value": "e04e8fcbf29ffa54f9b71f0799b6b39e"
 						},
 						{
 							"key": "_rev",
-							"value": "2-4e02515b549e643a394533d553e5d157"
+							"value": "1-87a5f0ea2cecd3794cc93dfed644d660"
 						},
 						{
 							"key": "name",
-							"value": "Paul"
+							"value": "Heinz"
 						}
 					]
 				}
@@ -123,9 +154,15 @@
 			"name": "Delete User",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "apikey",
+						"value": "Corona2020",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "https://wirvsvirus-ibm.eu-de.mybluemix.net/user?_id=3c3c04a85e303fbdd55df5190b7ed332&_rev=4-c6ac100ccbf65c506b3f7e012ed9bd20&name=Jens",
+					"raw": "https://wirvsvirus-ibm.eu-de.mybluemix.net/doc?_id=e04e8fcbf29ffa54f9b71f0799b6b39e&_rev=2-42d4ca190611f2c5b7617f32d279fd7e",
 					"protocol": "https",
 					"host": [
 						"wirvsvirus-ibm",
@@ -134,20 +171,16 @@
 						"net"
 					],
 					"path": [
-						"user"
+						"doc"
 					],
 					"query": [
 						{
 							"key": "_id",
-							"value": "3c3c04a85e303fbdd55df5190b7ed332"
+							"value": "e04e8fcbf29ffa54f9b71f0799b6b39e"
 						},
 						{
 							"key": "_rev",
-							"value": "4-c6ac100ccbf65c506b3f7e012ed9bd20"
-						},
-						{
-							"key": "name",
-							"value": "Jens"
+							"value": "2-42d4ca190611f2c5b7617f32d279fd7e"
 						}
 					]
 				}
