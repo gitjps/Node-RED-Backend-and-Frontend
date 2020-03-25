@@ -4,6 +4,8 @@ This solution consists of two parts:
 1. Cloudant-CRUD: can be used to perform CREATE, READ, UPDATE and DELETE operations against a Cloudant database. It is an simple way to provide data store for hackathons, prototypes etc.
 2. Simple Forwarding Server (needed to provide an interface to Web frontends)
 
+![Architecture](Node-RED-Backend.jpg)
+
 ** UNDER CONSTRUCTION **
 
 # Prequisites
