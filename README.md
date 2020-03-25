@@ -1,10 +1,13 @@
 # Node-RED Backend
 
-This solution consists of two parts:
-1. Cloudant-CRUD: can be used to perform CREATE, READ, UPDATE and DELETE operations against a Cloudant database. It is an simple way to provide data store for hackathons, prototypes etc.
-2. Simple Forwarding Server (needed to provide an interface to Web frontends)
+This solution consists of the following parts
+- a Cloudant database
+- the Backend-App (business logic, interfaces to external systems, CRUD requests to the database)
+- a simple forwarding server, needed to provide an interface to Web frontends
 
 ![Architecture](Node-RED-Backend.jpg)
+
+It can be used for hackathons, prototypes and alike.
 
 ** UNDER CONSTRUCTION **
 
