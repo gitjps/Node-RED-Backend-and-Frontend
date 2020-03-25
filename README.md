@@ -22,11 +22,16 @@ It can be used for hackathons, prototypes and alike.
 ![Node-RED flow](node-red-crud.jpg)
 
 # Endpoints
+
+## CRUD endpoints
 - Create doc
 - Get all docs
 - Get doc
 - Update doc
 - Delete doc
+
+## Other endpoins
+not implemented yet
 
 # How it works
 The API key is set when the flow starts (initialization node).
