@@ -1,0 +1,17 @@
+{
+  "author": "Thomas Suedbroecker",
+  "license": "Apache License Version 2.0",
+  "name": "simple_forward_server",
+  "version": "1.0.0",
+  "description": "simple_forward_server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "request": "^2.88.0"
+  }
+}
