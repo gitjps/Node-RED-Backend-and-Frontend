@@ -9,6 +9,8 @@ var cors = require("cors"); // Cors
 app.use(cors());
 var port = process.env.PORT || 3000;
 
+app.get('/', (req, res) => res.send('Hello World!'))
+
 // *************** GETDATA ***************************************
 app.get('/getData', function (req, res) {
     var request = require("request");
@@ -29,6 +31,7 @@ app.get('/getData', function (req, res) {
     //    console.log("GET DOCS: \n", JSON.stringify(restoptions));
 
     request(restoptions, function (error, response, body) {
+        console.log(typeof (body));
         body_json = JSON.parse(body);
         if (error) {
             console.error("Failed: %s", error.message);

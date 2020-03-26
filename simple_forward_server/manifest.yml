@@ -1,5 +1,6 @@
 applications:
-  - path: .
+  - name: wirvsvirus-ibm-jps
+    path: .
     memory: 512M
     instances: 1
     disk_quota: 250M
