@@ -1,0 +1,245 @@
+{
+	"info": {
+		"_postman_id": "b4976503-0458-4167-a2f4-6edd2b6cab9d",
+		"name": "Node-RED Simple FS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET all docs",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apikey",
+						"value": "Corona19Corona",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "route",
+						"value": "https://wirvsvirus-ibm.eu-de.mybluemix.net/fsgetdocs",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"def\"\n}"
+				},
+				"url": {
+					"raw": "{{backend}}/getData/",
+					"host": [
+						"{{backend}}"
+					],
+					"path": [
+						"getData",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE doc",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "apikey",
+						"type": "text",
+						"value": "Corona2020"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "route",
+						"type": "text",
+						"value": "https://wirvsvirus-ibm.eu-de.mybluemix.net/fscreatedoc"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"def\"\n}"
+				},
+				"url": {
+					"raw": "{{backend}}/postData/",
+					"host": [
+						"{{backend}}"
+					],
+					"path": [
+						"postData",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE doc",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "apikey",
+						"type": "text",
+						"value": "Corona2020"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "route",
+						"type": "text",
+						"value": "https://wirvsvirus-ibm.eu-de.mybluemix.net/fsupdatedoc"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"xyz\",\n\t\"_id\" : \"152b4e19b85f1de808a48a88e8019785\",\n\t\"_rev\": \"1-f671a648cb265ddfb2e0f8fb3623118f\"\n}"
+				},
+				"url": {
+					"raw": "{{backend}}/postData/",
+					"host": [
+						"{{backend}}"
+					],
+					"path": [
+						"postData",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE doc",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "apikey",
+						"type": "text",
+						"value": "Corona19Corona"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "route",
+						"type": "text",
+						"value": "https://wirvsvirus-ibm.eu-de.mybluemix.net/fsdeletedoc"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"_id\" : \"a788953d22ce8bdf363d01ed86177e3e\",\n\t\"_rev\": \"1-84503f20d046c5194f6340b65564985b\"\n}"
+				},
+				"url": {
+					"raw": "{{backend}}/postData/",
+					"host": [
+						"{{backend}}"
+					],
+					"path": [
+						"postData",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET doc",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "apikey",
+						"type": "text",
+						"value": "Corona2020"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "route",
+						"type": "text",
+						"value": "https://wirvsvirus-ibm.eu-de.mybluemix.net/fsgetdoc"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"_id\": \"26add6bebae8fe95cdaa9da6c28c302f\"\n}"
+				},
+				"url": {
+					"raw": "{{backend}}/postData/",
+					"host": [
+						"{{backend}}"
+					],
+					"path": [
+						"postData",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hello World",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{backend}}/",
+					"host": [
+						"{{backend}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
