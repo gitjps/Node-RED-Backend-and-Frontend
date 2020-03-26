@@ -5,18 +5,6 @@
     "disabled": false,
     "info": ""
 }, {
-    "id": "8d16feb0.6a185",
-    "type": "cloudant",
-    "z": "",
-    "host": "myaccountname.cloudant.com",
-    "name": "My Cloudant account"
-}, {
-    "id": "a1b2f385.20354",
-    "type": "cloudant",
-    "z": "",
-    "host": "myaccountname.cloudant.com",
-    "name": "My Cloudant account"
-}, {
     "id": "4f5d32c8.a2f5ec",
     "type": "cloudant out",
     "z": "eec4c8f9.caf1f8",
@@ -244,7 +232,7 @@
         "t": "set",
         "p": "apikey_users",
         "pt": "global",
-        "to": "Corona2020",
+        "to": "___",
         "tot": "str"
     }],
     "action": "",
@@ -601,4 +589,16 @@
     "wires": [
         ["910662d1.8ce56"]
     ]
+}, {
+    "id": "8d16feb0.6a185",
+    "type": "cloudant",
+    "z": "",
+    "host": "myaccountname.cloudant.com",
+    "name": "My Cloudant account"
+}, {
+    "id": "a1b2f385.20354",
+    "type": "cloudant",
+    "z": "",
+    "host": "myaccountname.cloudant.com",
+    "name": "My Cloudant account"
 }]

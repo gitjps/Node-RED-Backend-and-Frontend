@@ -1,0 +1,599 @@
+[{
+    "id": "e3605c1e.6a317",
+    "type": "tab",
+    "label": "FRONTEND",
+    "disabled": false,
+    "info": ""
+}, {
+    "id": "4b4a7fe6.70175",
+    "type": "ui_text_input",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "label": "Name",
+    "tooltip": "",
+    "group": "b9f8ece8.f368a",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "passthru": true,
+    "mode": "text",
+    "delay": 300,
+    "topic": "",
+    "x": 270,
+    "y": 140,
+    "wires": [
+        ["c15e5862.b661f8"]
+    ]
+}, {
+    "id": "ad090fca.2519b",
+    "type": "ui_button",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "group": "b9f8ece8.f368a",
+    "order": 4,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "label": "READ",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "icon": "",
+    "payload": "",
+    "payloadType": "str",
+    "topic": "",
+    "x": 150,
+    "y": 380,
+    "wires": [
+        ["a6598c58.053f9"]
+    ]
+}, {
+    "id": "69119aa0.9a6234",
+    "type": "ui_button",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "group": "b9f8ece8.f368a",
+    "order": 5,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "label": "CREATE",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "icon": "",
+    "payload": "",
+    "payloadType": "str",
+    "topic": "",
+    "x": 160,
+    "y": 340,
+    "wires": [
+        ["fd9680ae.63c4f"]
+    ]
+}, {
+    "id": "e3d9b5b0.704668",
+    "type": "ui_button",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "group": "b9f8ece8.f368a",
+    "order": 6,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "label": "UPDATE",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "icon": "",
+    "payload": "",
+    "payloadType": "str",
+    "topic": "",
+    "x": 160,
+    "y": 420,
+    "wires": [
+        ["8c388625.dacae8"]
+    ]
+}, {
+    "id": "7e0957c6.a65e98",
+    "type": "ui_button",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "group": "b9f8ece8.f368a",
+    "order": 7,
+    "width": 0,
+    "height": 0,
+    "passthru": false,
+    "label": "DELETE",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "icon": "",
+    "payload": "",
+    "payloadType": "str",
+    "topic": "",
+    "x": 160,
+    "y": 460,
+    "wires": [
+        ["d70b9105.b92d8"]
+    ]
+}, {
+    "id": "4518fbc6.4ace04",
+    "type": "http request",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "method": "GET",
+    "ret": "txt",
+    "paytoqs": false,
+    "url": "",
+    "persist": false,
+    "authType": "",
+    "x": 450,
+    "y": 260,
+    "wires": [
+        ["b70bea29.6f9008"]
+    ]
+}, {
+    "id": "ac00f3a4.795ed",
+    "type": "inject",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "x": 90,
+    "y": 260,
+    "wires": [
+        ["b90b3cb7.cb1f7"]
+    ]
+}, {
+    "id": "dc690fe4.a1",
+    "type": "inject",
+    "z": "e3605c1e.6a317",
+    "name": "initialization",
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "x": 190,
+    "y": 40,
+    "wires": [
+        ["b404b3f0.1f15c"]
+    ]
+}, {
+    "id": "b404b3f0.1f15c",
+    "type": "change",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "rules": [{
+        "t": "set",
+        "p": "apikey",
+        "pt": "global",
+        "to": "...",
+        "tot": "str"
+    }, {
+        "t": "set",
+        "p": "ForwardServer",
+        "pt": "global",
+        "to": "http://___.com:3000",
+        "tot": "str"
+    }, {
+        "t": "set",
+        "p": "BackendServer",
+        "pt": "global",
+        "to": "https://____.eu-de.mybluemix.net",
+        "tot": "str"
+    }],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 380,
+    "y": 40,
+    "wires": [
+        []
+    ]
+}, {
+    "id": "b90b3cb7.cb1f7",
+    "type": "function",
+    "z": "e3605c1e.6a317",
+    "name": "prepare call",
+    "func": "msg = {\n    url : global.get(\"ForwardServer\") + \"/getData\",\n    headers: {\n        apikey: global.get(\"apikey\"),\n        \"Content-Type\": \"application/json\",\n        route: global.get(\"BackendServer\") + \"/fsgetdocs\"\n    }\n}\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 280,
+    "y": 260,
+    "wires": [
+        ["4518fbc6.4ace04"]
+    ]
+}, {
+    "id": "b70bea29.6f9008",
+    "type": "json",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "property": "payload",
+    "action": "",
+    "pretty": false,
+    "x": 630,
+    "y": 260,
+    "wires": [
+        ["f0c5b6f8.cc25a8", "a8c1d3ec.22556"]
+    ]
+}, {
+    "id": "2a10c74d.506378",
+    "type": "ui_dropdown",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "label": "",
+    "tooltip": "",
+    "place": "Select option",
+    "group": "b9f8ece8.f368a",
+    "order": 3,
+    "width": 0,
+    "height": 0,
+    "passthru": true,
+    "options": [{
+        "label": "",
+        "value": "",
+        "type": "str"
+    }],
+    "payload": "",
+    "topic": "",
+    "x": 910,
+    "y": 260,
+    "wires": [
+        ["45d55dd9.65a644"]
+    ]
+}, {
+    "id": "f0c5b6f8.cc25a8",
+    "type": "function",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "func": "dropdownlist = [];\nfor (i=0; i<msg.payload.length; i++) {\n    id = msg.payload[i]._rev;\n    name = msg.payload[i].name;\n    keyvaluepair = {};\n    keyvaluepair[name]=id;\n    dropdownlist.push( keyvaluepair )\n}\nmsg.options = dropdownlist;\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 770,
+    "y": 260,
+    "wires": [
+        ["2a10c74d.506378"]
+    ]
+}, {
+    "id": "45d55dd9.65a644",
+    "type": "change",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "rules": [{
+        "t": "set",
+        "p": "selected_value",
+        "pt": "global",
+        "to": "payload",
+        "tot": "msg"
+    }],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1130,
+    "y": 260,
+    "wires": [
+        []
+    ]
+}, {
+    "id": "d70b9105.b92d8",
+    "type": "function",
+    "z": "e3605c1e.6a317",
+    "name": "prepare call",
+    "func": "selected_value = global.get(\"selected_value\");\nallEntries = global.get(\"allEntries\");\n_id = 0;\nfor (i=0; i<allEntries.length; i++) {\n    if (selected_value == allEntries[i]._rev) {\n        _id = allEntries[i]._id;\n        break;\n    }\n}\nif ( _id != 0) {\n    \n    msg = {\n        url : global.get(\"ForwardServer\") + \"/postData\",\n        headers: {\n            apikey: global.get(\"apikey\"),\n            \"Content-Type\": \"application/json\",\n            route: global.get(\"BackendServer\") + \"/fsdeletedoc\"\n        },\n        payload: {\n            _id: _id,\n            _rev: selected_value\n        }\n    }\n    \n}\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 370,
+    "y": 460,
+    "wires": [
+        ["b06ec937.0431f8", "d67c2667.18f418"]
+    ]
+}, {
+    "id": "b06ec937.0431f8",
+    "type": "http request",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "method": "POST",
+    "ret": "txt",
+    "paytoqs": false,
+    "url": "",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "authType": "",
+    "x": 590,
+    "y": 460,
+    "wires": [
+        ["b90b3cb7.cb1f7"]
+    ]
+}, {
+    "id": "a8c1d3ec.22556",
+    "type": "change",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "rules": [{
+        "t": "set",
+        "p": "allEntries",
+        "pt": "global",
+        "to": "payload",
+        "tot": "msg"
+    }],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 810,
+    "y": 220,
+    "wires": [
+        []
+    ]
+}, {
+    "id": "d67c2667.18f418",
+    "type": "debug",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "x": 540,
+    "y": 520,
+    "wires": []
+}, {
+    "id": "fd9680ae.63c4f",
+    "type": "function",
+    "z": "e3605c1e.6a317",
+    "name": "prepare call",
+    "func": "    msg = {\n        url : global.get(\"ForwardServer\") + \"/postData\",\n        headers: {\n            apikey: global.get(\"apikey\"),\n            \"Content-Type\": \"application/json\",\n            route: global.get(\"BackendServer\") + \"/fscreatedoc\"\n        },\n        payload: {\n            name: global.get(\"name\"),\n            town: global.get(\"town\")\n        }\n\n}\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 370,
+    "y": 340,
+    "wires": [
+        ["4cbe9c5c.69ce64"]
+    ]
+}, {
+    "id": "4cbe9c5c.69ce64",
+    "type": "http request",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "method": "POST",
+    "ret": "txt",
+    "paytoqs": false,
+    "url": "",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "authType": "",
+    "x": 590,
+    "y": 340,
+    "wires": [
+        ["b90b3cb7.cb1f7"]
+    ]
+}, {
+    "id": "eb01897f.3aa018",
+    "type": "ui_text_input",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "label": "Town",
+    "tooltip": "",
+    "group": "b9f8ece8.f368a",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "passthru": true,
+    "mode": "text",
+    "delay": 300,
+    "topic": "",
+    "x": 270,
+    "y": 180,
+    "wires": [
+        ["c1372030.5e292"]
+    ]
+}, {
+    "id": "c1372030.5e292",
+    "type": "change",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "rules": [{
+        "t": "set",
+        "p": "town",
+        "pt": "global",
+        "to": "payload",
+        "tot": "msg"
+    }],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 460,
+    "y": 180,
+    "wires": [
+        []
+    ]
+}, {
+    "id": "c15e5862.b661f8",
+    "type": "change",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "rules": [{
+        "t": "set",
+        "p": "name",
+        "pt": "global",
+        "to": "payload",
+        "tot": "msg"
+    }],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 460,
+    "y": 140,
+    "wires": [
+        []
+    ]
+}, {
+    "id": "a6598c58.053f9",
+    "type": "function",
+    "z": "e3605c1e.6a317",
+    "name": "prepare call",
+    "func": "selected_value = global.get(\"selected_value\");\nallEntries = global.get(\"allEntries\");\n_id = 0;\nfor (i=0; i<allEntries.length; i++) {\n    if (selected_value == allEntries[i]._rev) {\n        _id = allEntries[i]._id;\n        break;\n    }\n}\nif ( _id != 0) {\n    \n    msg = {\n        url : global.get(\"ForwardServer\") + \"/postData\",\n        headers: {\n            apikey: global.get(\"apikey\"),\n            \"Content-Type\": \"application/json\",\n            route: global.get(\"BackendServer\") + \"/fsgetdoc\"\n        },\n        payload: {\n            _id: _id,\n            _rev: selected_value\n        }\n    }\n    \n}\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 370,
+    "y": 380,
+    "wires": [
+        ["58dae0e8.f6e5b"]
+    ]
+}, {
+    "id": "58dae0e8.f6e5b",
+    "type": "http request",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "method": "POST",
+    "ret": "txt",
+    "paytoqs": false,
+    "url": "",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "authType": "",
+    "x": 590,
+    "y": 380,
+    "wires": [
+        ["b9e723a9.b8b16"]
+    ]
+}, {
+    "id": "fae952ea.46af7",
+    "type": "debug",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "x": 1190,
+    "y": 380,
+    "wires": []
+}, {
+    "id": "b9e723a9.b8b16",
+    "type": "json",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "property": "payload",
+    "action": "",
+    "pretty": false,
+    "x": 750,
+    "y": 380,
+    "wires": [
+        ["e08950f1.1d148", "f687ed9d.94794"]
+    ]
+}, {
+    "id": "e08950f1.1d148",
+    "type": "change",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "rules": [{
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "payload.name",
+        "tot": "msg"
+    }],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 940,
+    "y": 380,
+    "wires": [
+        ["fae952ea.46af7", "4b4a7fe6.70175"]
+    ]
+}, {
+    "id": "f687ed9d.94794",
+    "type": "change",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "rules": [{
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "payload.town",
+        "tot": "msg"
+    }],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 940,
+    "y": 420,
+    "wires": [
+        ["eb01897f.3aa018"]
+    ]
+}, {
+    "id": "8c388625.dacae8",
+    "type": "function",
+    "z": "e3605c1e.6a317",
+    "name": "prepare call",
+    "func": "selected_value = global.get(\"selected_value\");\nallEntries = global.get(\"allEntries\");\n_id = 0;\nfor (i=0; i<allEntries.length; i++) {\n    if (selected_value == allEntries[i]._rev) {\n        _id = allEntries[i]._id;\n        break;\n    }\n}\nif ( _id != 0) {\n    msg = {\n        url : global.get(\"ForwardServer\") + \"/postData\",\n        headers: {\n            apikey: global.get(\"apikey\"),\n            \"Content-Type\": \"application/json\",\n            route: global.get(\"BackendServer\") + \"/fsupdatedoc\"\n        },\n        payload: {\n            name: global.get(\"name\"),\n            town: global.get(\"town\"),\n            _id: _id,\n            _rev: selected_value\n        }\n    }\n}\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 370,
+    "y": 420,
+    "wires": [
+        ["6674b35b.c5a24c"]
+    ]
+}, {
+    "id": "6674b35b.c5a24c",
+    "type": "http request",
+    "z": "e3605c1e.6a317",
+    "name": "",
+    "method": "POST",
+    "ret": "txt",
+    "paytoqs": false,
+    "url": "",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "authType": "",
+    "x": 590,
+    "y": 420,
+    "wires": [
+        []
+    ]
+}, {
+    "id": "b9f8ece8.f368a",
+    "type": "ui_group",
+    "z": "",
+    "name": "Group 1",
+    "tab": "f9942c0b.1546",
+    "order": 1,
+    "disp": true,
+    "width": "12",
+    "collapse": false
+}, {
+    "id": "f9942c0b.1546",
+    "type": "ui_tab",
+    "name": "Tab 1",
+    "icon": "dashboard",
+    "order": 1
+}]

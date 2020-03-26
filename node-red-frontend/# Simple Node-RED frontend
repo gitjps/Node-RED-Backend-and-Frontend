@@ -1,0 +1,5 @@
+# Simple Node-RED frontend
+
+header parameter *route*: path to the Node-RED flow
+header parameter *apikey*: used in the Node-RED flow for authentication
+a Docker image can be used as well, just start the server with docker run --rm -p 3000:3000 jps99084/simple_forward_server:0.0.2
