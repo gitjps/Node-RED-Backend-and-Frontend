@@ -1,0 +1,205 @@
+{
+	"info": {
+		"_postman_id": "7e27865a-6fae-4b83-af99-326b11d90d2b",
+		"name": "NODE-RED-Cloudant-CRUD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get docs",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apikey",
+						"value": "Corona2020",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{backend}}/docs",
+					"host": [
+						"{{backend}}"
+					],
+					"path": [
+						"docs"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create doc",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "apikey",
+						"type": "text",
+						"value": "Corona2020"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{backend}}/doc?Name=Bernd",
+					"host": [
+						"{{backend}}"
+					],
+					"path": [
+						"doc"
+					],
+					"query": [
+						{
+							"key": "Name",
+							"value": "Bernd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apikey",
+						"value": "Corona2020",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "_id",
+							"value": "68a576496b3315c689b881c467c861b7",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{backend}}/doc?_id=68a576496b3315c689b881c467c861b6",
+					"host": [
+						"{{backend}}"
+					],
+					"path": [
+						"doc"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "68a576496b3315c689b881c467c861b6"
+						},
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "apikey",
+						"value": "Corona2020",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{backend}}/doc?_id=e04e8fcbf29ffa54f9b71f0799b6b39e&_rev=1-87a5f0ea2cecd3794cc93dfed644d660&name=Heinz",
+					"host": [
+						"{{backend}}"
+					],
+					"path": [
+						"doc"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "e04e8fcbf29ffa54f9b71f0799b6b39e"
+						},
+						{
+							"key": "_rev",
+							"value": "1-87a5f0ea2cecd3794cc93dfed644d660"
+						},
+						{
+							"key": "name",
+							"value": "Heinz"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "apikey",
+						"value": "Corona2020",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://wirvsvirus-ibm.eu-de.mybluemix.net/doc?_id=e04e8fcbf29ffa54f9b71f0799b6b39e&_rev=2-42d4ca190611f2c5b7617f32d279fd7e",
+					"protocol": "https",
+					"host": [
+						"wirvsvirus-ibm",
+						"eu-de",
+						"mybluemix",
+						"net"
+					],
+					"path": [
+						"doc"
+					],
+					"query": [
+						{
+							"key": "_id",
+							"value": "e04e8fcbf29ffa54f9b71f0799b6b39e"
+						},
+						{
+							"key": "_rev",
+							"value": "2-42d4ca190611f2c5b7617f32d279fd7e"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
