@@ -28,19 +28,18 @@ The backend app receives https requests, performs some actions and returns the r
 - import the [Node-RED flow](https://github.com/gitjps/Node-RED-Cloudant-CRUD/blob/master/Node-RED.json) 
 - deploy the flow
 
-![Node-RED flow](node-red-crud.jpg)
-
 ## Endpoints
 
-### CRUD endpoints
 - Create doc
+
+![Node-RED flow](node-red-crud.jpg)
+
 - Get all docs
 - Get/read doc
 - Update doc
 - Delete doc
 
-### Other endpoints
-The backend app can also integrate with external systems, but this is not implemented yet.
+The backend app could also integrate with external systems or do some backend data processing, but this is not implemented yet.
 
 ## How it works
 The API key is set when the flow starts (initialization node). When a request is received (e.g. *Create doc*), the header parameter *apikey*  is checked first. If it is not correct, a 401 error is thrown. Otherwise the requested CRUD action is performed.
