@@ -1,11 +1,11 @@
 The forward server is needed when accessing a Node-RED backend from a web frontend.
 
 I used an [existing solution](https://github.com/thomassuedbroecker/hackathons_and_node-red/tree/master/simple_forward_server) and made the following modifications:
-- the URL of the Node-RED backend server is a parameter (*route*) now - was hard coded before
+- the URL of the Node-RED backend server is a parameter (*route*) now - was hard-coded before
 - an apikey is passed through 
 - a Dockerized version is available,  just start the server with `docker run --rm -p 3000:3000 jps99084/simple_forward_server:0.0.2`
 
-The following sections was originally posted [here](https://suedbroecker.net/2019/03/13/cors-and-node-red-using-a-simple-forward-server/).
+The following sections was originally posted [here](https://github.com/thomassuedbroecker/hackathons_and_node-red/tree/master/simple_forward_server).
 
 
 # Simple forwarding server
