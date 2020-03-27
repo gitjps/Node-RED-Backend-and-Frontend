@@ -49,4 +49,4 @@ A REST calls in Node-RED flows cannot be invoked directly from a web application
 
 ## Next steps
 
-Use the [Postman collection](https://github.com/gitjps/Node-RED-Backend-and-Frontend/blob/master/Node-RED%20Simple%20FS.postman_collection.json) to test the backend. Then go ahead and install the [simple forwarding server](https://github.com/gitjps/Node-RED-Backend-and-Frontend/tree/master/simple_forward_server).
+Use the [Postman collection](https://github.com/gitjps/Node-RED-Backend-and-Frontend/blob/master/NODE-RED-Cloudant-CRUD.postman_collection.json) to test the backend. Then go ahead and install the [simple forwarding server](https://github.com/gitjps/Node-RED-Backend-and-Frontend/tree/master/simple_forward_server).
