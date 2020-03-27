@@ -31,21 +31,19 @@ The backend app receives https requests, performs some actions and returns the r
 ## Endpoints
 
 - Create doc
-
-![Node-RED flow](node-red-crud.jpg)
-
 - Get all docs
 - Get/read doc
 - Update doc
 - Delete doc
 
-The backend app could also integrate with external systems or do some backend data processing, but this is not implemented yet.
+![Node-RED flow](node-red-crud.jpg)
+
+The backend app could also integrate with external systems or perform some data processing, but this is not implemented yet.
 
 ## How it works
 The API key is set when the flow starts (initialization node). When a request is received (e.g. *Create doc*), the header parameter *apikey*  is checked first. If it is not correct, a 401 error is thrown. Otherwise the requested CRUD action is performed.
 
 A REST calls in Node-RED flows cannot be invoked directly from a web application, a simple [forward server](/simple_forward_server) is needed. Once it is implemented you can use the simple Node-RED or any other web frontend.
-
 
 ## Next steps
 
